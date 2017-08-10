@@ -1,0 +1,76 @@
+
+.custom-modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 2;
+	display: none;
+}
+
+.custom-modal__content {
+    width: 1000px;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,0.2);
+    left: 0;
+    right: 0;
+    top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    padding: 0;
+    display: block;
+}
+
+.custom-modal__backdrop {
+    background: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0.85;
+}
+
+.custom-modal__content__header-title {
+	color: #606060;
+/*	font-family: "Proxima Nova";*/
+	font-size: 36px;
+	font-weight: 300;
+	line-height: 43px;
+    margin: 0;
+}
+
+.custom-modal__content__header-close {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 18px;
+    top: 18px
+}
+
+.custom-modal__content__header,
+.custom-modal__content__body,
+.custom-modal__content__footer{
+    padding: 20px 48px;
+    display: block;
+}
+
+.custom-modal__content-separator {
+	border-top: 1px solid #D3D5D9;
+}
+
+.custom-modal__content-nopadding {
+    padding: 0px
+}
+
+.custom-modal.in {
+    display: block;
+}
+.custom-modal-no-paddingtop {
+    padding-top: 0px;
+}
