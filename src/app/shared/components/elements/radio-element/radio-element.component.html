@@ -1,4 +1,22 @@
-<label>
-  <input #radioElement type="radio" checked="true">
-  Radio Button
-</label>
+<div class="dashboard__sidebar__section__content_box" (click)="showProperties(elementIndex)" 
+    [ngbPopover]="propertiesMenu" 
+    popoverTitle="Properties" 
+    #propTrigger="ngbPopover"
+    triggers="manual"
+    container="body"
+    placement="right">
+    <div class="dashboard__sidebar__section__content_box_block" [attr.id]="'elementBox_' + elementIndex">
+        <div class="dashboard__sidebar__section__content_box_block_overlay" ></div>
+        <label>
+          <input #radioElement type="radio" checked="true">
+          Radio Button
+        </label>
+    </div>
+</div>
+<ng-template #propertiesMenu>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+</ng-template>

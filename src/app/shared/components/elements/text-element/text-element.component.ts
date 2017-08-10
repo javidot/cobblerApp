@@ -9,6 +9,7 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 export class TextElementComponent implements OnInit {
   @ViewChild('propTrigger') public popover: NgbPopover;
   @Input() elementIndex: number;
+
   constructor() { }
 
   ngOnInit() {
