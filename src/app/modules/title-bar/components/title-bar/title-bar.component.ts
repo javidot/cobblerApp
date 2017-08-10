@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { NewAppComponent } from '../../../../shared/components/new-app/new-app.component';
 
 @Component({
   selector: 'app-title-bar',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TitleBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+    console.log('Initializing title-nar .component');
   }
-
+  showNewAppModal() {
+      const modalRef = this.modalService.open(NewAppComponent);
+  }
 }

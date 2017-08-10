@@ -1,0 +1,204 @@
+    <div class="dashboard">
+        <div class="dashboard__heading">
+            <h3 class="dashboard__heading_title">My App</h3>
+            <div class="content__separator content__separator-10"></div>
+            <div class="tablist">
+                <a href="#" class="tablist__item tablist__item-active" 
+                   title="App Builder">
+                    App Builder
+                </a>
+                <a href="#" class="tablist__item" 
+                   title="Activity">
+                    Activity
+                </a>
+                <a href="#" class="tablist__item" 
+                   title="People">
+                    People
+                </a>
+                <a href="#" class="tablist__item" 
+                   title="History">
+                    History
+                </a>
+            </div>
+        </div>
+        <div class="dashboard__container">
+            <div class="dashboard__editorzone">
+                <div class="dashboard__editorzone__page">
+                    <div class="dashboard__editorzone__page_tabs">
+                        <span *ngFor="let tab of tabs; let i=index">
+                            <div ngbDropdown class="dashboard__editorzone__page_tabs-option dashboard__editorzone__page_tabs-option-active" *ngIf="!tab.isUpdating">
+                                    <span id="{{tab.tabName}}" ngbDropdownToggle>
+                                        {{tab.tabName}}
+                                    </span>
+                                    <div class="dropdown-menu" attr.aria-labelledby="{{tab.tabName}}">
+                                        <button class="dropdown-item" (click)="selectTab(tab)">Select</button>
+                                        <div class="dropdown-divider"></div>
+                                        <button class="dropdown-item" (click)="tab.isUpdating = true;">Rename</button>
+                                        <button class="dropdown-item" (click)="addTab(tab)">Duplicate</button>
+                                        <button class="dropdown-item">Clear</button>
+                                        <div class="dropdown-divider"></div>
+                                        <button class="dropdown-item" (click)="deleteTab(tab)">Delete</button>
+                                    </div>
+                            </div>
+                            <div *ngIf="tab.isUpdating">
+                                <input #tabName type="text" value="{{tab.tabName}}" (change)="newTabName = tabName.value;">
+                                <button (click)="renameTab(tab)">Save</button>
+                                <button (click)="tab.isUpdating = false;">Cancel</button>
+                            </div>
+                        </span>
+                        <a href="javascript:;" class="dashboard__editorzone__page_tabs-option" (click)="addTab()">
+                            <img src="../../../../../assets/images/icons/plus_small@3x.svg" alt="Add">
+                        </a>
+                    </div>
+                    <div class="dashboard__editorzone__page_content">
+                        <ng-template appTabContainer></ng-template>
+                    </div>
+                </div>
+                <div class="dashboard__editorzone__bottomtabs">
+                    <a href="" class="dashboard__editorzone__bottomtabs_tab dashboard__editorzone__bottomtabs_tab-active">
+                        <i class="dashboard__editorzone__bottomtabs_tab_icon">&nbsp;</i>
+                        <span class="dashboard__editorzone__bottomtabs_tab_label">Tab1</span>
+                    </a>
+                     <a href="" class="dashboard__editorzone__bottomtabs_tab">
+                        <i class="dashboard__editorzone__bottomtabs_tab_icon">&nbsp;</i>
+                        <span class="dashboard__editorzone__bottomtabs_tab_label">Tab2</span>
+                    </a>
+                     <a href="" class="dashboard__editorzone__bottomtabs_tab">
+                        <i class="dashboard__editorzone__bottomtabs_tab_icon">&nbsp;</i>
+                        <span class="dashboard__editorzone__bottomtabs_tab_label">Tab3</span>
+                    </a>
+                     <a href="" class="dashboard__editorzone__bottomtabs_tab">
+                        <i class="dashboard__editorzone__bottomtabs_tab_icon"></i>
+                        <span class="dashboard__editorzone__bottomtabs_tab_label">Tab4</span>
+                    </a>
+                </div>
+            </div>
+            <div class="dashboard__sidebar">
+                <div class="dashboard__sidebar__section dashboard__sidebar__section-active">
+                    <a href="" class="dashboard__sidebar__section-link">
+                        Inputs
+                    </a>
+                    <div class="dashboard__sidebar__section__content">
+                        <a href="#" class="dashboard__sidebar__section__content-link">Inputs</a>
+                        <div class="dashboard__sidebar__section__content_box">
+                            <div class="dashboard__sidebar__section__content_box_block" dnd-draggable [dragEnabled]="true" [dragData]="{draggedElement: textElement}">
+                                <div class="dashboard__sidebar__section__content_box_block_overlay"></div>
+                                <input #textElement type="text" placeholder="Short Description" class="form-control">
+                            </div>
+                        </div>
+                        <div class="dashboard__sidebar__section__content_box">
+                            <div class="dashboard__sidebar__section__content_box_block" dnd-draggable [dragEnabled]="true" [dragData]="{draggedElement: textAreaElement}">
+                                <div class="dashboard__sidebar__section__content_box_block_overlay"></div>
+                                <textarea #textAreaElement name="longDescription" id="longDescription" cols="30" rows="10" placeholder="Long Description" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="dashboard__sidebar__section__content_box">
+                            <div class="dashboard__sidebar__section__content_box_block" dnd-draggable [dragEnabled]="true" [dragData]="{draggedElement: radioElement}">
+                                <div class="dashboard__sidebar__section__content_box_block_overlay"></div>
+                                <label>
+                                    <input #radioElement type="radio" checked="true">
+                                    Radio Button
+                                </label>
+                            </div>
+                            <div class="dashboard__sidebar__section__content_box_block" dnd-draggable [dragEnabled]="true" [dragData]="{draggedElement: checkboxElement}">
+                                <div class="dashboard__sidebar__section__content_box_block_overlay"></div>
+                                <label>
+                                    <input #checkboxElement type="checkbox" checked="true">
+                                    Checkbox
+                                </label>
+                            </div>
+                        </div>
+                        <div class="dashboard__sidebar__section__content_box">
+                            <div class="dashboard__sidebar__section__content_box_block" dnd-draggable [dragEnabled]="true">
+                                <div class="dashboard__sidebar__section__content_box_block_overlay"></div>
+                                <select #selectElement name="dropDown" class="form-control">
+                                    <option value="">Dropdown</option>
+                                </select>
+                            </div>
+                            <div class="dashboard__sidebar__section__content_box_block" dnd-draggable [dragEnabled]="true">
+                                <div class="dashboard__sidebar__section__content_box_block_overlay"></div>
+                                <input #hiddenElement type="text" placeholder="Hidden field" class="form-control hidden-field">
+                            </div>
+                        </div>
+                        <div class="dashboard__sidebar__section__content_box">
+                            <div class="dashboard__sidebar__section__content_box_block" dnd-draggable [dragEnabled]="true">
+                                <div class="dashboard__sidebar__section__content_box_block_overlay"></div>
+                                <div>
+                                    <label for="date" class="dashboard__sidebar__section__content_box_block_label">Date</label>
+                                    <input #dateElement type="text" class="form-control" id="date" placeholder="mm/dd/yy">
+                                </div>
+                            </div>
+                            <div class="dashboard__sidebar__section__content_box_block" dnd-draggable [dragEnabled]="true">
+                                <div class="dashboard__sidebar__section__content_box_block_overlay"></div>
+                                <div>
+                                    <label for="time" class="dashboard__sidebar__section__content_box_block_label">Time</label>
+                                    <input #timeElement type="text" class="form-control" id="time" placeholder="12:30 p.m.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard__sidebar__section__content_box">
+                            <div class="dashboard__sidebar__section__content_box_block" dnd-draggable [dragEnabled]="true">
+                                <div class="dashboard__sidebar__section__content_box_block_overlay"></div>
+                                <div>
+                                    <label for="date" class="dashboard__sidebar__section__content_box_block_label">
+                                        Matrix
+                                    </label>
+                                    <table #matrixElement class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard__sidebar__section ">
+                    <a href="" class="dashboard__sidebar__section-link">
+                        Outputs
+                    </a>
+                    <div class="dashboard__sidebar__section__content">
+                       <a href="#" class="dashboard__sidebar__section__content-link">Inputs</a>
+                        <div class="dashboard__sidebar__section__content_box">
+                            Content goes here
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard__sidebar__section">
+                    <a href="" class="dashboard__sidebar__section-link">
+                        Formatting
+                    </a>
+                    <div class="dashboard__sidebar__section__content">
+                        Content goes here
+                    </div>
+                </div>
+                <div class="dashboard__sidebar__section">
+                    <a href="" class="dashboard__sidebar__section-link">
+                        Reporting
+                    </a>
+                    <div class="dashboard__sidebar__section__content">
+                        Content goes here
+                    </div>
+                </div>
+                <div class="dashboard__sidebar__section">
+                    <a href="" class="dashboard__sidebar__section-link">
+                        Object Library
+                    </a>
+                    <div class="dashboard__sidebar__section__content">
+                        Content goes here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

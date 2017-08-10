@@ -1,0 +1,29 @@
+.table td{padding: 14px 8px !Important;height: 50px;}
+.table th{padding: 10px 0px !Important;}
+.table td{
+    color:#999;
+    font-weight: normal;
+    text-rendering: geometricPrecision;
+}
+
+.table__event_status {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.table__event_status-danger {
+    background: red;
+}
+
+.table__event_status-success {
+    background: #9CC927
+}
+
+.table-wrapper {
+    float: left;
+    width: 100%;
+    display: block;
+}
