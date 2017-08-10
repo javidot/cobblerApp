@@ -1,3 +1,54 @@
-<p>
-  new-app works!
-</p>
+<div class="modal-dialog modal-lg">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="form-group">
+        <h4>Create a new app</h4>
+      </div>
+      <div class="form-group">
+        <label for="lblAppName">App name:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="lblAppName">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit" onclick="buscar();">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+          </div>
+        </div>
+      </div>
+
+      <ngb-tabset>
+        <ngb-tab title="Select a Template" [disabled]="true">
+          <ng-template ngbTabContent>
+            <p></p>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Template Applications">
+          <ng-template ngbTabContent>
+            <ul class="img-thumbnails clearfix">
+              <li>
+                <img id="Img1" width="110px" height="176px" src="../../../../../assets/images/Empty.png" />
+                <img id="Img2" width="110px" height="176px" src="../../../../../assets/images/form.png" />
+                <img id="Img3" width="110px" height="176px" src="../../../../../assets/images/form.png" />
+                <img id="Img4" width="110px" height="176px" src="../../../../../assets/images/form.png" />
+                <img id="Img4" width="110px" height="176px" src="../../../../../assets/images/form.png" />
+              </li>
+            </ul>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Existing Applications">
+          <ng-template ngbTabContent>
+            <a class='btn btn-primary' href='javascript:;'>
+              Choose File...
+              <input type="file" name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+            </a>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-success" type="button" ng-click="cancel()">Next</button>
+    </div>
+  </div>
+</div>

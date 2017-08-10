@@ -10,12 +10,17 @@ import { NewAppComponent } from '../../../../shared/components/new-app/new-app.c
 })
 export class TitleBarComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) { }
+  constructor(public modalService: NgbModal) { }
 
   ngOnInit() {
     console.log('Initializing title-nar .component');
   }
+  
   showNewAppModal() {
-      const modalRef = this.modalService.open(NewAppComponent);
-  }
+  const modalRef = this.modalService.open(NewAppComponent, { size: 'lg' });
+  
+}
+
+
+
 }

@@ -12,4 +12,11 @@ export class NewAppComponent implements OnInit {
   ngOnInit() {
   }
 
+   buscar()
+ {
+    var str = "lenin";
+        alert("TextBox Value is " +str);
+
+ }
+
 }

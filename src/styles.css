@@ -1,3 +1,106 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
 /*GLOBALS*/
 html,body{
     min-height: 100vh;
@@ -8,8 +111,6 @@ body{
     padding-top: 64px;
     font-family: 'Proxima Nova', verdana;
     color: #4F5968;
-    background: #F4F4F5 !important;
-    padding-top: 0px !important;
 }
 a,a:hover{text-decoration: none;}
 .btn,input[type="text"],select,textarea {
@@ -26,27 +127,30 @@ table a{
     color:#228BD8 !important;
 }
 
-.dnd-drag-start {
-    -moz-transform:scale(0.8);
-    -webkit-transform:scale(0.8);
-    transform:scale(0.8);
-    opacity:0.7;
-    border: 2px dashed #000;
+.table td{padding: 14px 8px !Important;height: 50px;}
+.table th{padding: 10px 0px !Important;}
+.table td{
+    color:#999;
+    font-weight: normal;
+    text-rendering: geometricPrecision;
+}
+.table__event_status {
+    width: 12px;
+    height: 12px;
+    display: block;
+    background: #ccc;
+    border-radius: 50%;
 }
 
-.dnd-drag-enter {
-    opacity:0.7;
-    border: 2px dashed #000;
+.table__event_status-danger {
+    background: red;
 }
 
-.dnd-drag-over {
-    border: 2px dashed #000;
+.table__event_status-success {
+    background: #9CC927
 }
-
-.dnd-sortable-drag {
-  -moz-transform:scale(0.9);
-  -webkit-transform:scale(0.9);
-  transform:scale(0.9);
-  opacity:0.7;
-  border: 1px dashed #000;
+.table-wrapper {
+    float: left;
+    width: 100%;
+    display: block;
 }
