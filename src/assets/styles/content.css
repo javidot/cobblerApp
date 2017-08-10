@@ -1,0 +1,230 @@
+.content {
+    margin-left: 200px;
+    padding: 40px;
+    height: 100vh;
+}
+
+.content__heading {
+    display: flex;
+    flex-direction: row;
+}
+
+.content__heading>* {
+    flex: 1;
+}
+
+.content__heading_title {
+    height: 43px;
+    width: 81px;
+    color: #606060;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 43px;
+    margin: 0;
+}
+
+.content__heading_searc_field {
+    height: 35px;
+    border: 1px solid #D3D5D9 !important;
+    border-radius: 2px;
+    background-color: #FBFBFC !important;
+    box-shadow: none !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
+.content__heading_search {
+    max-width: 285px;
+    width: 285px;
+    position: relative;
+}
+
+.content__heading_search_icon {
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    height: 20px;
+    width: 20px;
+    backface-visibility: #ccc;
+    display: block;
+    margin: auto;
+    text-align: center;
+    border-radius: 50%;
+    color: #ccc;
+    font-weight: 200
+}
+
+.content__heading_search_icon-right {
+    right: 10px;
+    left: auto;
+}
+
+.content__separator {
+    display: block;
+    height: 10px;
+    float: left;
+    width: 100%;
+}
+
+.content__separator-20 {
+    height: 40px;
+}
+
+.content__separator-30 {
+    height: 40px;
+}
+
+.content__separator-40 {
+    height: 40px;
+}
+
+.content__separator-50 {
+    height: 40px;
+}
+
+.content__separator-35 {
+    height: 35px;
+}
+
+.content__separator-15 {
+    height: 15px;
+}
+
+.content__separator-5 {
+    height: 5px !Important;
+}
+
+.content__separator-10 {
+    height: 10px;
+}
+
+.content__apps-list_app_thum {
+    height: 110px;
+    background: #F4F4F5;
+    display: block;
+    text-align: center;
+    border-bottom: thin #ebebeb solid;
+    overflow: hidden;
+}
+
+.content__apps-list_app_thum>img {
+    max-width: 85% !important;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.content__apps-list_app_footer-note {
+    padding: 8px
+}
+
+.content__apps-list_app_footer-note_title,
+.content__apps-list_app_footer-note_date {
+    display: block;
+    clear: both;
+    width: 100%;
+}
+
+.content__apps-list_app_footer-note_date {
+    font-size: .8em;
+    color: #ccc;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -moz-line-clamp: 1;
+    -ms-line-clamp: 1;
+    -o-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -mo-box-orient: vertical;
+    -o-box-orient: vertical;
+    overflow: hidden;
+    height: 1.4em;
+}
+
+.content__apps-list_app_footer-note_title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -moz-line-clamp: 1;
+    -ms-line-clamp: 1;
+    -o-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -mo-box-orient: vertical;
+    -o-box-orient: vertical;
+    overflow: hidden;
+    height: 1.4em;
+    font-size: 13px;
+}
+
+.content__apps-list_app {
+    display: inline-block;
+    height: 163px;
+    width: 180px;
+    border: 1px solid #D3D5D9;
+    border-radius: 2px;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    float: left;
+}
+
+.content__apps-list_app-empty {
+    border: 1px solid transparent;
+    background: linear-gradient(#FBFBFC, #FBFBFC) padding-box, repeating-linear-gradient(45deg, #D3D5D9 0, #D3D5D9 30%, transparent 0%, transparent 60%) 0 / 1.2em 1.2em;
+    box-shadow: none;
+}
+
+.content__apps-list_app-empty:hover,
+.content__apps-list_app-empty.active,
+.content__apps-list_app-empty:focus,
+.content__apps-list_app-empty-dragged {
+    background: linear-gradient(#F4F9FD, #F4F9FD) padding-box, repeating-linear-gradient(45deg, #228BD8 0, #228BD8 30%, transparent 0%, transparent 60%) 0 / 1.2em 1.2em;
+}
+
+.content__app-list_app-dropzone {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
+    color: #A7ACB4;
+    font-weight: 200;
+}
+
+.content__app-list_app-dragable_icon {
+    font-size: 4em;
+    display: block;
+    text-align: center;
+    font-weight: 100;
+    line-height: 100%;
+}
+
+.content__app-list_app-dragable_label {
+    display: block;
+    text-align: center;
+}
+
+.content__recent-app {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.content__apps-list {
+    float: left;
+    width: 100%;
+    display: block;
+}
+
+.content__recent-app_heading_title {
+    padding-top: 0px;
+    margin-top: 0px;
+    color: #4F596A;
+}
+
+.content__separator-25 {
+    height: 
+}

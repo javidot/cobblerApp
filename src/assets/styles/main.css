@@ -1,0 +1,57 @@
+.form-control{
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+.link {
+    color: #228BD8;
+    font-weight: normal;
+}
+
+.create-app__appname-field {
+	height: 35px !Important;
+	border: 1px solid #D3D5D9 !important;
+	border-radius: 2px !important;
+	background-color: #FBFBFC !important;
+}
+
+.create-app__appname_dropzone {
+	height: 163px;
+	border: 1px solid #D3D5D9;
+	border-radius: 2px;
+	background-color: #FBFBFC;
+    text-align: center;
+    display: block;
+    position: relative;
+}
+.create-app__appname_dropzone input[type="file"]{
+    visibility: hidden;
+}
+
+.create-app__appname_dropzone-centrate {
+    height: 80px;
+    display: block;
+    width: 300px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color:#4F596A;
+}
+
+.create-app__appname_dropzone_icon {
+    margin-bottom: 10px;
+    display: block
+}
+
+.create-app__appname_separator {
+    height: 80px;
+    display: block;
+    clear: both;
+}
+
+.create-app__appname-title {
+    margin: 0;
+    margin-bottom: 20px;
+}

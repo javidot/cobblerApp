@@ -1,0 +1,56 @@
+/*SIDE-NAV_BEM_COMPONENT*/
+
+.side-nav {
+    height: 100vh;
+    min-height: 850px;
+    width: 200px;
+    background-color: #4F596A;
+    position: fixed;
+    left: 0;
+    top: 64px;
+    bottom: 0px;
+    z-index: 2;
+}
+
+.side-nav__menu {
+    padding: 0;
+}
+
+.side-nav__menu_item {
+    list-style: none;
+}
+
+.side-nav__menu_item_link {
+    height: 64px;
+    display: block;
+    line-height: 60px;
+    text-decoration: none;
+    color: white;
+    font-weight: 200;
+    position: relative;
+    padding-left: 60px
+}
+
+.side-nav__menu_item_link_icon {
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    margin: auto;
+}
+
+.side-nav__menu_item-active,
+.side-nav__menu_item:hover {
+    background-color: #434B59;
+}
+
+.side-nav__menu_item_link:hover,
+.side-nav__menu_item_link:active {
+    text-decoration: none;
+    color: white;
+}
