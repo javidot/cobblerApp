@@ -40,7 +40,7 @@
                                         <button class="dropdown-item" (click)="deleteTab(tab)">Delete</button>
                                     </div>
                             </div>
-                            <div *ngIf="tab.isUpdating">
+                            <div *ngIf="tab.isUpdating" class="dashboard__editorzone__page_tabs-option">
                                 <input #tabName type="text" value="{{tab.tabName}}" (change)="newTabName = tabName.value;">
                                 <button (click)="renameTab(tab)">Save</button>
                                 <button (click)="tab.isUpdating = false;">Cancel</button>

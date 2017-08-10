@@ -4,12 +4,13 @@ html,body{
     width: 100vw;
     min-width: 800px;
     overflow-x: hidden;
-    text-rendering: geometricPrecision;
 }
 body{
     padding-top: 65px;
     font-family: 'Proxima Nova', verdana;
     color: #4F5968;
+    font-size: 14px;
+    text-rendering: geometricPrecision;
 }
 a,a:hover{text-decoration: none !important;}
 .btn,input[type="text"],select,textarea {

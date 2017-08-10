@@ -1,7 +1,7 @@
-body{
+/* body{
     background: #F4F4F5 !important;
     padding-top: 0px !important;
-}
+} */
 .dashboard {
     margin-left: 200px;
     padding: 0px;
@@ -11,6 +11,7 @@ body{
     left: 0px;
     bottom: 0;
     overflow: hidden;
+    background: #F4F4F5 !important
 }
 
 .dashboard__heading {
@@ -33,7 +34,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    top: 134px
+    top: 138px
 }
 .dashboard__container > * {
     flex: 1;
