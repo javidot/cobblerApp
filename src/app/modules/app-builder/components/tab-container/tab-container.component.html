@@ -1,11 +1,6 @@
 <div class="dashboard__editorzone__page_content_node dashboard__editorzone__page_content_node-empty" dnd-droppable (onDropSuccess)="addElement($event)">
     <span *ngIf="droppedElements.length <= 0">Drag app elements you want to add here.</span>
     <div *ngFor="let droppedElement of droppedElements; let i=index">
-        <div [ngSwitch]="droppedElement.type">
-            <app-text-element *ngSwitchCase="'text'" [elementIndex]="i"></app-text-element>
-            <app-textarea-element *ngSwitchCase="'textarea'"></app-textarea-element>
-            <app-radio-element *ngSwitchCase="'radio'"></app-radio-element>
-            <app-checkbox-element *ngSwitchCase="'checkbox'"></app-checkbox-element>
-        </div>
+        <app-element-container [elementType] = "droppedElement.type" [elementIndex]="i"></app-element-container>
     </div>
 </div>

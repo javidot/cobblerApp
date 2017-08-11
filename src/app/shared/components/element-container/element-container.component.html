@@ -1,0 +1,34 @@
+<div class="component" [attr.id]="'elementBox_' + elementIndex">
+    <div class="component__heading">
+        <h5 class="component__heading_title">
+            {{elementLabel}}
+            <span class="component__label" [ngClass]="{'component__label-danger': !rangeAdded}">
+                {{outputRange}}
+            </span>
+            <button class="component__menu" (click)="showProperties(elementIndex)"
+              [ngbPopover]="propertiesMenu" 
+              popoverTitle="Properties" 
+              #propTrigger="ngbPopover"
+              triggers="manual"
+              container="body"
+              placement="right">
+                <span class="component__menu_icon fa fa-ellipsis-h"></span>
+            </button>
+        </h5>
+    </div>
+    <div class="component__content">
+        <div [ngSwitch]="elementType">
+          <app-text-element *ngSwitchCase="'text'" [elementIndex]="elementIndex"></app-text-element>
+          <app-textarea-element *ngSwitchCase="'textarea'" [elementIndex]="elementIndex"></app-textarea-element>
+          <app-radio-element *ngSwitchCase="'radio'" [elementIndex]="elementIndex"></app-radio-element>
+          <app-checkbox-element *ngSwitchCase="'checkbox'" [elementIndex]="elementIndex"></app-checkbox-element>
+        </div>
+    </div>
+</div>
+<ng-template #propertiesMenu>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+    <p>Test</p>
+</ng-template>

@@ -10,7 +10,7 @@ import { ITabContainer} from '../../components/tab-container/tab-container.inter
 @Component({
   selector: 'app-app-builder',
   templateUrl: './app-builder.component.html',
-  styleUrls: ['./app-builder.component.css']
+  styleUrls: ['../../../../../assets/styles/dashboard.css']
 })
 export class AppBuilderComponent implements OnInit, AfterViewInit {
   @ViewChild(TabContainerDirective) tabHost: TabContainerDirective;
@@ -45,6 +45,8 @@ export class AppBuilderComponent implements OnInit, AfterViewInit {
   }
 
   selectTab(tab: Tab) {
+    this.tabs.find((t) => t.isActive).isActive = false;
+    tab.isActive = true;
     tab.tabContainer = new TabContainer(TabContainerComponent, {tabName: tab.tabName});
     this.loadTabContainer(tab);
   }
@@ -58,11 +60,12 @@ export class AppBuilderComponent implements OnInit, AfterViewInit {
   addTab(tab?: Tab) {
     if (tab) {
       const newTab = _.clone(tab);
+      newTab.isActive = false;
       this.tabs.push(newTab);
       return;
     }
     const newLength = this.tabs.length + 1;
-    this.tabs.push(new Tab('Tab_' + newLength, true, null));
+    this.tabs.push(new Tab('Tab_' + newLength, false, null));
   }
 
   deleteTab(tab: Tab) {

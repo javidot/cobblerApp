@@ -21,18 +21,18 @@
       "styles": [
         "styles.css",
         "./assets/styles/bootstrap.overrides.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/font-awesome/css/font-awesome.min.css",
         "./assets/styles/custom-modal.css",
         "./assets/styles/header.css",
         "./assets/styles/main.css",
         "./assets/styles/content.css",
-        "./assets/styles/dashboard.css",
         "./assets/styles/side_nav.css",
         "./assets/styles/scrollbar.css",
         "./assets/styles/table.css",
         "./assets/styles/tablist.css",
-        "./assets/styles/tooltip.css"
+        "./assets/styles/tooltip.css",
+        "./assets/styles/component.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

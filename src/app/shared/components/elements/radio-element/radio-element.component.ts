@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-radio-element',
@@ -7,20 +6,11 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./radio-element.component.css']
 })
 export class RadioElementComponent implements OnInit {
-  @ViewChild('propTrigger') public popover: NgbPopover;
   @Input() elementIndex: number;
+  options: Array<string> = ['Option 1', 'Option 2', 'Option 3'];
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  showProperties(index: number) {
-    console.log('Element #' + index);
-    const isOpen = this.popover.isOpen();
-    this.popover.close();
-    if (!isOpen) {
-      this.popover.open();
-    }
   }
 }

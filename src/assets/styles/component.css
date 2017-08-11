@@ -1,0 +1,68 @@
+
+.component *{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #434B59;
+    font-weight: normal;
+}
+.component + .component{
+    border-top:none;
+}
+
+.component {
+    border:solid 1px #ccc;
+    display: block;
+    width: 100%;
+    clear: both;
+    position: relative;
+}
+
+.component__heading {
+    padding: 10px 20px 0px 20px;
+    text-align: left !important;
+}
+
+.component__content {
+    margin: 14px 20px;
+    text-align: left !important;
+}
+.component__content input[type="radio"]{
+    margin-right: 10px
+}
+
+.component__label {
+    background: #F4F4F5;
+    padding: 4px 8px;
+    font-size: 11px;
+    border-radius: 4px;
+    margin: 0 10px;
+    color:#999;
+    text-rendering: geometricPrecision;
+}
+.component__label-danger{
+    color: #F06339;
+}
+
+.component__menu {
+    float: right;
+    background: none;
+    border: none;
+    position: relative;
+    right: -6px
+}
+.component__menu .component__menu_icon{ 
+    font-size: 24px;
+    color: #999;
+    line-height: 16px;
+}
+
+.component__heading_title {
+    font-size: 14px
+}
+
+.component__expander {
+    position: absolute;
+    right: 4px;
+    bottom: 2px;
+}

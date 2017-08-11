@@ -26,7 +26,7 @@
                 <div class="dashboard__editorzone__page">
                     <div class="dashboard__editorzone__page_tabs">
                         <span *ngFor="let tab of tabs; let i=index">
-                            <div ngbDropdown class="dashboard__editorzone__page_tabs-option dashboard__editorzone__page_tabs-option-active" *ngIf="!tab.isUpdating">
+                            <div ngbDropdown [ngClass]="{'dashboard__editorzone__page_tabs-option-active': tab.isActive}" class="dashboard__editorzone__page_tabs-option" *ngIf="!tab.isUpdating">
                                     <span id="{{tab.tabName}}" ngbDropdownToggle>
                                         {{tab.tabName}}
                                     </span>
@@ -57,19 +57,19 @@
                 <div class="dashboard__editorzone__bottomtabs">
                     <a href="" class="dashboard__editorzone__bottomtabs_tab dashboard__editorzone__bottomtabs_tab-active">
                         <i class="dashboard__editorzone__bottomtabs_tab_icon">&nbsp;</i>
-                        <span class="dashboard__editorzone__bottomtabs_tab_label">Tab1</span>
+                        <span class="dashboard__editorzone__bottomtabs_tab_label">App Canvas</span>
                     </a>
                      <a href="" class="dashboard__editorzone__bottomtabs_tab">
                         <i class="dashboard__editorzone__bottomtabs_tab_icon">&nbsp;</i>
-                        <span class="dashboard__editorzone__bottomtabs_tab_label">Tab2</span>
+                        <span class="dashboard__editorzone__bottomtabs_tab_label">Data Reference</span>
                     </a>
                      <a href="" class="dashboard__editorzone__bottomtabs_tab">
                         <i class="dashboard__editorzone__bottomtabs_tab_icon">&nbsp;</i>
-                        <span class="dashboard__editorzone__bottomtabs_tab_label">Tab3</span>
+                        <span class="dashboard__editorzone__bottomtabs_tab_label">Data Collection</span>
                     </a>
                      <a href="" class="dashboard__editorzone__bottomtabs_tab">
                         <i class="dashboard__editorzone__bottomtabs_tab_icon"></i>
-                        <span class="dashboard__editorzone__bottomtabs_tab_label">Tab4</span>
+                        <span class="dashboard__editorzone__bottomtabs_tab_label">Reporting</span>
                     </a>
                 </div>
             </div>

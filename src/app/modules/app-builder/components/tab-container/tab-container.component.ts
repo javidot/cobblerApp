@@ -5,7 +5,7 @@ import { ITabContainer} from './tab-container.interface';
 @Component({
   selector: 'app-tab-container',
   templateUrl: './tab-container.component.html',
-  styleUrls: ['./tab-container.component.css']
+  styleUrls: ['../../../../../assets/styles/dashboard.css']
 })
 export class TabContainerComponent implements OnInit, ITabContainer {
   @ViewChild('propTrigger') public popover: NgbPopover;

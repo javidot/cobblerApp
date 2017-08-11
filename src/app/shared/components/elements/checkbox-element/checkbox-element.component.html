@@ -1,4 +1,6 @@
-<label for="dropCb">Checkbox</label>
-<input style="display: block;" id="dropCb" type="checkbox" checked="true">
-<input style="display: block;" id="dropCb" type="checkbox">
-<input style="display: block;" id="dropCb" type="checkbox">
+<div *ngFor="let opt of options; let i=index">
+    <label>
+        <input #checkboxElement type="checkbox" name="checkboxElement" [checked]="i === 0" [value]="opt">
+        <span>{{opt}}</span>
+    </label>
+</div>    
