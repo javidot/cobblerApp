@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DndModule } from 'ng2-dnd';
@@ -11,7 +13,10 @@ import { AppLibraryModule } from './modules/app-library/app-library.module';
 import { AppBuilderModule } from './modules/app-builder/app-builder.module';
 import { SharedModule } from './shared/shared.module';
 
+import { MockDataBackendService } from './private/backend/mockdata-backend.service';
+
 import { AppComponent } from './app.component';
+import { DataBackendService } from './private/backend/data-backend.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +25,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(MockDataBackendService),
     NavigationModule,
     TitleBarModule,
     AppLibraryModule,
@@ -31,7 +38,7 @@ import { AppComponent } from './app.component';
   exports: [
     DndModule,
   ],
-  providers: [],
+  providers: [DataBackendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -72,41 +72,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><a href="#">Gembuck</a></td>
-                        <td>disabled</td>
-                        <td>09/15/2014</td>
+                    <tr *ngFor="let userApp of currentUser.apps; let i=index">
+                        <td><a href="#">{{userApp.app.name}}</a></td>
+                        <td>{{userApp.userStatus}}</td>
+                        <td>{{userApp.addedOn | date:'MM/dd/yyyy'}}</td>
                         <td>
                             <span class="table__event_status table__event_status-danger"></span>
                         </td>
-                        <td>Me</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">TreeFlex</a></td>
-                        <td>active</td>
-                        <td>04/20/2016</td>
-                        <td>
-                            <span class="table__event_status table__event_status-success"></span>
-                        </td>
-                        <td>Me</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Alpha</a></td>
-                        <td>disabled</td>
-                        <td>01/31/2016</td>
-                        <td>
-                            <span class="table__event_status table__event_status-danger"></span>
-                        </td>
-                        <td>skrol2</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Byteard</a></td>
-                        <td>active</td>
-                        <td>11/23/2016</td>
-                        <td>
-                            <span class="table__event_status table__event_status-success"></span>
-                        </td>
-                        <td>Me</td>
+                        <td>{{userApp.app.owner.firstName}} {{userApp.app.owner.lastName}}</td>
                     </tr>
                 </tbody>
             </table>
