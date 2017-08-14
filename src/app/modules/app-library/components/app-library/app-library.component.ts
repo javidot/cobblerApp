@@ -10,6 +10,7 @@ import { User } from '../../../../shared/models/user';
 })
 export class AppLibraryComponent implements OnInit {
   currentUser: User;
+  loading = true;
 
   constructor(private dataService: DataService) { }
 
@@ -19,6 +20,7 @@ export class AppLibraryComponent implements OnInit {
       .subscribe(
         user => {
           console.log('User retrieved');
+          this.loading = false;
         },
         err => {
           console.log('Error retrieving User');

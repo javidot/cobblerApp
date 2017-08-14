@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoadersCssModule } from 'angular2-loaders-css';
 
 import { TitleBarComponent } from './components/title-bar/title-bar.component';
 import { NewAppComponent } from '../../shared/components/new-app/new-app.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
+    LoadersCssModule,
   ],
   exports: [
     TitleBarComponent,

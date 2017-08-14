@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { User } from '../../shared/models/user';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+
+import { User } from '../../shared/models/user';
+import { App } from '../../shared/models/app';
 
 @Injectable()
 export class DataBackendService {
@@ -16,6 +18,21 @@ export class DataBackendService {
       });
   }
 
-  getUserApps(id: number) {
+  getAllTemplateApps() {
+    return this.http.get('api/templateApps/')
+      .map(res => {
+        console.log(res.json());
+        return res.json().data;
+      });
+  }
+
+  createApp(app: App) {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    
+    // return this.http.post('api/users', app, options)
+    //   .map(newApp => {
+        
+    //   })
   }
 }

@@ -27,6 +27,7 @@ import { DataBackendService } from './private/backend/data-backend.service';
     AppRoutingModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(MockDataBackendService),
+    // InMemoryWebApiModule.forRoot(MockDataBackendService, { delay: 2000 }),
     NavigationModule,
     TitleBarModule,
     AppLibraryModule,

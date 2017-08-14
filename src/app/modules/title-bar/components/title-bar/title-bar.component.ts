@@ -13,14 +13,10 @@ export class TitleBarComponent implements OnInit {
   constructor(public modalService: NgbModal) { }
 
   ngOnInit() {
-    console.log('Initializing title-nar .component');
+    console.log('Initializing title-bar .component');
   }
-  
+
   showNewAppModal() {
-  const modalRef = this.modalService.open(NewAppComponent, { size: 'lg' });
-  
-}
-
-
-
+    const modalRef = this.modalService.open(NewAppComponent, { size: 'lg' });
+  }
 }

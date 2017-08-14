@@ -61,6 +61,9 @@
         </div>
         <div class="content__separator content__separator-5"></div>
         <div class="table-wrapper">
+            <span *ngIf="loading">
+                <loaders-css [loader]="'ball-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css> 
+            </span>
             <table class="table">
                 <thead>
                    <tr>
