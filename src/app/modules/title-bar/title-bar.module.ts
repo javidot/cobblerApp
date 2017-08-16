@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../../app-routing.module';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadersCssModule } from 'angular2-loaders-css';
 
@@ -13,6 +15,8 @@ import { NewAppComponent } from '../../shared/components/new-app/new-app.compone
     CommonModule,
     NgbModule,
     LoadersCssModule,
+    FormsModule,
+    AppRoutingModule
   ],
   exports: [
     TitleBarComponent,

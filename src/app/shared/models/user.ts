@@ -6,6 +6,7 @@ export class User {
     lastName: string;
     email: string;
     confirmed: boolean;
+    accountsFk: number;
     apps?: Array<UserApp>;
 
     constructor(
@@ -14,6 +15,7 @@ export class User {
         lastName?: string,
         email?: string,
         confirmed?: boolean,
+        accountsFk?: number,
         apps?: Array<UserApp>
     ) {
         this.id = id;
@@ -21,5 +23,7 @@ export class User {
         this.lastName = lastName;
         this.email = email;
         this.confirmed = confirmed;
+        this.accountsFk = accountsFk;
+        this.apps = apps;
     }
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -26,7 +27,8 @@ import { DataBackendService } from './private/backend/data-backend.service';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(MockDataBackendService),
+    RouterModule,
+    // InMemoryWebApiModule.forRoot(MockDataBackendService, { passThruUnknownUrl: true }),
     // InMemoryWebApiModule.forRoot(MockDataBackendService, { delay: 2000 }),
     NavigationModule,
     TitleBarModule,

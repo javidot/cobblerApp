@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { LoadersCssModule } from 'angular2-loaders-css';
 
 import { SharedModule } from '../../shared/shared.module';
@@ -10,6 +11,7 @@ import { AppLibraryComponent } from './components/app-library/app-library.compon
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     SharedModule,
     LoadersCssModule
   ],

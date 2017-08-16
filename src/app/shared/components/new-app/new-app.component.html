@@ -11,7 +11,7 @@
         <div class="custom-modal__content__body">
             <div class="create-app__appname">
                 <h5 class="create-app__appname-title">App name</h5>
-                <input type="text" class="form-control create-app__appname-field">
+                <input #txtAppName name="txtAppName" type="text" class="form-control create-app__appname-field" [(ngModel)]="appName">
             </div>
         </div>
         <div class="custom-modal__content__body custom-modal__content-nopadding">

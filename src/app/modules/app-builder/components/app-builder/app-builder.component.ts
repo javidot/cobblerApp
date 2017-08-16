@@ -1,11 +1,14 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, AfterViewInit, ComponentRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import * as _ from 'underscore';
 
 import { Tab } from './tab';
 import { TabContainer } from './tab-container';
 import { TabContainerDirective } from '../../directives/tab-container.directive';
 import { TabContainerComponent } from '../../components/tab-container/tab-container.component';
-import { ITabContainer} from '../../components/tab-container/tab-container.interface';
+import { ITabContainer } from '../../components/tab-container/tab-container.interface';
+import { DataService } from '../../../../shared/services/data.service';
+import { App } from '../../../../shared/models/app';
 
 @Component({
   selector: 'app-app-builder',
@@ -19,11 +22,23 @@ export class AppBuilderComponent implements OnInit, AfterViewInit {
   tabs: Tab[];
   activeTab: Tab;
   tabComponentRef: ComponentRef<{}>;
+  appId: string;
+  currentApp: App;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
-  }
+  constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private route: ActivatedRoute,
+    private dataService: DataService) {}
 
   ngOnInit() {
+    this.route.params.subscribe((params) => {
+      this.appId = params['id'];
+      this.dataService.apps.subscribe((apps) => {
+        this.currentApp = apps.find(a => a.id === +this.appId);
+        console.log('Current app is: ', this.currentApp);
+      });
+    });
+
     this.tabs = new Array<Tab>();
     this.tabs.push(new Tab('Tab_1', true, null));
     this.activeTab = this.tabs[0];

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DndModule } from 'ng2-dnd';
 import { SharedModule } from '../../shared/shared.module';
+import { DataService } from '../../shared/services/data.service';
 
 import { AppBuilderComponent } from './components/app-builder/app-builder.component';
 import { AppBuilderCanvasComponent } from './components/app-builder-canvas/app-builder-canvas.component';
@@ -23,7 +24,10 @@ import { TabContainerComponent } from './components/tab-container/tab-container.
     SharedModule,
   ],
   exports: [AppBuilderComponent],
-  declarations: [
+  providers: [
+    DataService
+  ],
+declarations: [
     AppBuilderComponent,
     AppBuilderCanvasComponent,
     AppBuilderActivityComponent,

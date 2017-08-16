@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CheckboxElementComponent } from './components/elements/checkbox-element/checkbox-element.component';
@@ -14,6 +15,7 @@ import { DataService } from './services/data.service';
   imports: [
     CommonModule,
     NgbModule,
+    FormsModule,
   ],
   exports: [
     CheckboxElementComponent,

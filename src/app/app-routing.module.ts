@@ -10,7 +10,7 @@ const routes: Routes = [
     children: []
   },
   {
-    path: 'appbuilder',
+    path: 'appbuilder/:id',
     component: AppBuilderComponent,
     children: []
   }

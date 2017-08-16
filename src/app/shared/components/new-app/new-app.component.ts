@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { DataService } from '../../../shared/services/data.service';
 import { App } from '../../../shared/models/app';
@@ -12,8 +15,9 @@ import { App } from '../../../shared/models/app';
 export class NewAppComponent implements OnInit {
   templateApps: App[];
   loading = true;
+  appName = '';
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router, private activeModal: NgbActiveModal) { }
 
   ngOnInit() {
     console.log('Initializing new-app.component');
@@ -38,6 +42,16 @@ export class NewAppComponent implements OnInit {
   }
 
   createApp() {
-    // this.dataService.createApp()
+    if (this.appName) {
+      this.dataService.createApp(this.appName)
+        .then(
+          (app) => {
+            this.activeModal.close();
+            this.router.navigate(['/appbuilder/' + app.id]);
+          }
+        );
+    } else {
+      console.log('No name added.');
+    }
   }
 }
