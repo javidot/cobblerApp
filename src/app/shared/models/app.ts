@@ -4,13 +4,13 @@ export class App {
     id: number;
     name: string;
     description: string;
-    creationDate: Date;
+    creationDate: string;
     ownerFk: number;
     ownerName: string;
     accountFk: number;
     isTemplate: number;
 
-    constructor(name: string, description: string, creationDate: Date,
+    constructor(name: string, description: string, creationDate: string,
         isTemplate: number, ownerFk: number, accountFk: number) {
         this.id = null;
         this.name = name;

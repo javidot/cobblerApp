@@ -34,7 +34,8 @@
         "./assets/styles/component.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
-        "../node_modules/loaders.css/loaders.min.css"
+        "../node_modules/loaders.css/loaders.min.css",
+        "../node_modules/moment/min/moment.min.js"        
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

@@ -15,11 +15,11 @@ export class MockDataBackendService implements InMemoryDbService {
     const user2 = new User(2, 'James', 'Ring-Howell', 'james.ring-howell@coralfire.com', true);
 
     const apps: App[] = new Array<App>();
-    apps.push(new App('Test App 01', 'Testing Cobbler 01', new Date(), false, 1, 1));
+    apps.push(new App('Test App 01', 'Testing Cobbler 01', new Date().toString(), 0, 1, 1));
     apps[0].id = 1;
-    apps.push(new App('Test App 02', 'Testing Cobbler 02', new Date(), false, 1, 1));
+    apps.push(new App('Test App 02', 'Testing Cobbler 02', new Date().toString(), 0, 1, 1));
     apps[1].id = 2;
-    apps.push(new App('Template 01', 'Testing Template 01', new Date(), true, 1, 1));
+    apps.push(new App('Template 01', 'Testing Template 01', new Date().toString(), 0, 1, 1));
     apps[2].id = 3;
 
     const users: User[] = new Array<User>();

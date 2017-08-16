@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MomentModule } from 'angular2-moment';
+
 
 import { CheckboxElementComponent } from './components/elements/checkbox-element/checkbox-element.component';
 import { RadioElementComponent } from './components/elements/radio-element/radio-element.component';
@@ -16,6 +18,7 @@ import { DataService } from './services/data.service';
     CommonModule,
     NgbModule,
     FormsModule,
+    MomentModule,
   ],
   exports: [
     CheckboxElementComponent,

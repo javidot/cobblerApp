@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Rx';
 import { Subscriber } from 'rxjs/Subscriber';
 import 'rxjs/add/operator/map';
+import * as moment from 'moment';
 
 import { DataBackendService } from '../../private/backend/data-backend.service';
 import { User } from '../models/user';
@@ -61,10 +62,11 @@ export class DataService {
   }
 
   createApp(name: string): Promise<App> {
-    const newApp = new App(name, '', new Date(), 0, this._userSubject.getValue().id, this._userSubject.getValue().accountsFk);
+    const newApp = new App(name, '', moment(new Date()).format('YYYY-MM-DD HH:mm:ss'), 0,
+      this._userSubject.getValue().id, this._userSubject.getValue().accountsFk);
     return this.dataBackendService.createApp(newApp)
       .then((app) => {
-          const tmpApps = this._appsSubject.getValue();
+          const tmpApps: App[] = this._appsSubject.getValue();
           tmpApps.push(app);
           this._appsSubject.next(tmpApps);
           return app;
