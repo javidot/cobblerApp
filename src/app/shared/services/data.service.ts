@@ -8,7 +8,9 @@ import * as moment from 'moment';
 import { DataBackendService } from '../../private/backend/data-backend.service';
 import { User } from '../models/user';
 import { App } from '../models/app';
+import { Tab } from '../../modules/app-builder/models/tab';
 import { UserApp } from '../models/user-app';
+import { AppForm } from '../models/app-form';
 
 @Injectable()
 export class DataService {
@@ -55,10 +57,29 @@ export class DataService {
       });
   }
 
+  getAppForms(appId: number): Observable<AppForm[]> {
+    return this.dataBackendService.getAppForms(appId)
+      .map(appsForm => {
+        if (appsForm) {
+          return appsForm;
+        } else {
+          return new Array<AppForm>();
+        }
+      });
+  }
+
   getUserApps(userId: number): Observable<App[]> {
     return new Observable<App[]>((subscriber: Subscriber<App[]>) => {
       subscriber.next(this._appsSubject.getValue().filter((a) => a.ownerFk === userId));
     });
+  }
+
+  deleteForm(appId: number, formId: number): Observable<{ commandType: string, result: any }> {
+    return this.dataBackendService.deleteAppForm(appId, formId);
+  }
+
+  saveForm(form: AppForm): Observable<{ commandType: string, result: any }> {
+    return this.dataBackendService.saveAppForm(form);
   }
 
   createApp(name: string): Promise<App> {

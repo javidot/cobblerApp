@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { RadioElement } from '../../../models/radio-element';
 
 @Component({
   selector: 'app-radio-element',
@@ -6,8 +7,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
   styleUrls: ['./radio-element.component.css']
 })
 export class RadioElementComponent implements OnInit {
-  @Input() elementIndex: number;
-  options: Array<string> = ['Option 1', 'Option 2', 'Option 3'];
+  @Input() element: RadioElement;
 
   constructor() { }
 

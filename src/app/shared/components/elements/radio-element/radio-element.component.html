@@ -1,6 +1,6 @@
-<div *ngFor="let opt of options; let i=index">
+<div *ngFor="let opt of element.properties.options; let i=index">
     <label>
-        <input #radioElement type="radio" name="radioElement" [checked]="i === 0" [value]="opt">
-        <span>{{opt}}</span>
+        <input #radioElement type="radio" name="radioElement" [checked]="i === 0" [value]="opt.value">
+        <span>{{opt.text}}</span>
     </label>
 </div>    

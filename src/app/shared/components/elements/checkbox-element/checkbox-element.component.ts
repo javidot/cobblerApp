@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CheckboxElement } from '../../../models/checkbox-element';
 
 @Component({
   selector: 'app-checkbox-element',
@@ -6,8 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./checkbox-element.component.css']
 })
 export class CheckboxElementComponent implements OnInit {
-  @Input() elementIndex: number;
-  options: Array<string> = ['Option 1', 'Option 2', 'Option 3'];
+  @Input() element: CheckboxElement;
 
   constructor() { }
 

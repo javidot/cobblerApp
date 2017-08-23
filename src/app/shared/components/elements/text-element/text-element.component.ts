@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { TextElement } from '../../../models/text-element';
 
 @Component({
   selector: 'app-text-element',
@@ -6,7 +7,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
   styleUrls: ['./text-element.component.css']
 })
 export class TextElementComponent implements OnInit {
-  @Input() elementIndex: number;
+  @Input() element: TextElement;
 
   constructor() { }
 

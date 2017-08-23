@@ -1,0 +1,94 @@
+<div class="dashboard__sidebar">
+    <div class="dashboard__sidebar__section dashboard__sidebar__section-active">
+        <form #propertiesForm="ngForm">
+            <div class="tools">
+                <div class="tools__header">
+                    <h5 class="tools__header_title">
+                        Dropdown
+                    </h5>
+                    <button class="tools_close" (click)="closePanel()">
+                        <img src="../../../../../assets/images/icons/close_small@3x.svg" alt="">
+                    </button>
+                </div>
+                <div class="tools__body">
+                    <div class="tools__body_group">
+                        <label class="tools__body_group_title">Data Output</label>
+                        <div class="tools__body_group_row">
+                            <div class="tools__body_group_row-5">
+                                <input #pOutputRange="ngModel" name="pOutputRange" type="text" class="form-control" placeholder="Add Output Range" [(ngModel)]="element.properties.outputRange">
+                            </div>
+                            <div class="tools__body_group_row-7">
+                                <button class="btn btn-primary pull-right">Set output reference</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tools__body_group">
+                        <label class="tools__body_group_title">Label</label>
+                        <div class="tools__body_group_row">
+                            <input #pLabel="ngModel" name="pLabel" type="text" required class="form-control" placeholder="Add Label" [(ngModel)]="element.properties.label">
+                        </div>
+                    </div>
+                    <div class="tools__body_group">
+                        <label class="tools__body_group_title">Field Options</label>
+                        <div class="tools__body_group_row">
+                            <div class="tools__body_group_row-6">
+                                <label class="tools_checkbox">
+                                    <input #pRequired="ngModel" name="pRequired" type="checkbox"[(ngModel)]="element.properties.isRequired"> Required
+                                </label>
+                            </div>
+                            <div class="tools__body_group_row-6">
+                                <label class="tools_checkbox">
+                                    <input #pShowLabels="ngModel" name="pShowLabels" type="checkbox" 
+                                    [attr.checked]="element.properties.showLabels ? 'checked' : null" [(ngModel)]="element.properties.showLabels"> Show Labels
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tools__body_group">
+                        <label class="tools__body_group_title">Data Input</label>
+                        <div class="tools__body_group_row">
+                            <div class="tools__body_group_row-5">
+                                <input #pInputRange="ngModel" name="pInputRange" type="text" class="form-control" placeholder="Add Input Range" [(ngModel)]="element.properties.inputRange">
+                            </div>
+                            <div class="tools__body_group_row-7">
+                                <button class="btn btn-default pull-right">
+                                    Set input reference
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tools__body_group">
+                        <label class="tools__body_group_title">Dropbox Content</label>
+                        <div *ngFor="let opt of element.properties.options; let i=index" class="tools__body_group_row tools__body_group_row-margin-bottom">
+                            <div class="tools__body_group_row-7">
+                                <input type="text" name="option_{{i}}" class="form-control" placeholder="Enter Option" [(ngModel)]="opt.text">
+                            </div>
+                            <div class="tools__body_group_row-5">
+                                <div class="tools__body_group_row">
+                                    <div class="tools__body_group_row">
+                                        <button class="tools__body_group_row-1 btn" (click)="addOption()">
+                                            <img src="../../../../../assets/images/icons/plus_small@3x.svg">
+                                        </button>
+                                        <button class="tools__body_group_row-1 btn" (click)="deleteOption(i)">
+                                            <img src="../../../../../assets/images/icons/delete_small@3x.svg">
+                                        </button>
+                                        <button class="tools__body_group_row-1 btn">
+                                            <img src="../../../../../assets/images/icons/hamburger_small@3x.svg">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tools__footer">
+                    <div class="btn-group pull-right">
+                        <!-- <button class="btn btn-danger btn-danger-outline">Delete</button>
+                        <button class="btn btn-disabled">Cancel</button>
+                        <button class="btn btn-primary">Save</button> -->
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

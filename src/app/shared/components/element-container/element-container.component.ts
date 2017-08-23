@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-element-container',
@@ -7,24 +6,30 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./element-container.component.css']
 })
 export class ElementContainerComponent implements OnInit {
-  @ViewChild('propTrigger') public popover: NgbPopover;
-  @Input() elementType: string;
-  @Input() elementIndex: number;
+  @Input() element: any;
+  @Output() onEdit = new EventEmitter<number>();
+  @Output() onDuplicate = new EventEmitter<number>();
+  @Output() onDelete = new EventEmitter<number>();
+
   elementLabel = 'Define Label';
-  outputRange = 'No output defined';
+  outputRange = '';
   rangeAdded = false;
 
   constructor() { }
 
   ngOnInit() {
+    console.log('Element: ', this.element);
   }
 
-  showProperties(index: number) {
-    console.log('Element #' + index);
-    const isOpen = this.popover.isOpen();
-    this.popover.close();
-    if (!isOpen) {
-      this.popover.open();
-    }
+  edit(elementIndex: number) {
+    this.onEdit.emit(elementIndex);
+  }
+
+  duplicate(elementIndex: number) {
+    this.onDuplicate.emit(elementIndex);
+  }
+
+  delete(elementIndex: number) {
+    this.onDelete.emit(elementIndex);
   }
 }

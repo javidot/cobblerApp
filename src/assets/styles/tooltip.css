@@ -1,19 +1,18 @@
 
 .tools {
     position: absolute;
-    right: -308px;
-    top: 0;
+    /* right: -308px; */
+    /* top: 0; */
     min-height: 500px;
     width: 322.35px;
-    border: 1px solid #D3D5D9;
-    border-radius: 2px;
+    /* border: 1px solid #D3D5D9;
+    border-radius: 2px; */
     background-color: #FFFFFF;
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.1);
-    z-index: 2;
+    /* box-shadow: 0 1px 5px 0 rgba(0,0,0,0.1); */
     font-size: 14px;
     color:#4F596A;
 }
-.tools:after, .tools:before {
+/* .tools:after, .tools:before {
 	right: 100%;
 	top: 10%;
 	border: solid transparent;
@@ -22,9 +21,9 @@
 	width: 0;
 	position: absolute;
 	pointer-events: none;
-}
+} */
 
-.tools:after {
+/* .tools:after {
 	border-color: rgba(255, 255, 255, 0);
 	border-right-color: #fff;
 	border-width: 10px;
@@ -35,7 +34,7 @@
 	border-right-color: #d3d5d9;
 	border-width: 11px;
 	margin-top: -11px;
-}
+} */
 .tools .btn{width: auto;margin: 0;}
 .tools .btn.btn-danger,.tools .btn.btn-danger:hover {
     background: transparent;

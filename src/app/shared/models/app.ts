@@ -11,8 +11,8 @@ export class App {
     isTemplate: number;
 
     constructor(name: string, description: string, creationDate: string,
-        isTemplate: number, ownerFk: number, accountFk: number) {
-        this.id = null;
+        isTemplate: number, ownerFk: number, accountFk: number, id?) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.creationDate = creationDate;

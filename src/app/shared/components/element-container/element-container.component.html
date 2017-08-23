@@ -1,34 +1,156 @@
-<div class="component" [attr.id]="'elementBox_' + elementIndex">
+<div class="component" [attr.id]="'elementBox_' + element.index">
     <div class="component__heading">
         <h5 class="component__heading_title">
             {{elementLabel}}
             <span class="component__label" [ngClass]="{'component__label-danger': !rangeAdded}">
                 {{outputRange}}
             </span>
-            <button class="component__menu" (click)="showProperties(elementIndex)"
-              [ngbPopover]="propertiesMenu" 
-              popoverTitle="Properties" 
-              #propTrigger="ngbPopover"
-              triggers="manual"
-              container="body"
-              placement="right">
-                <span class="component__menu_icon fa fa-ellipsis-h"></span>
-            </button>
+            <div ngbDropdown class="d-inline-block component__dropdown">
+                <button class="component__menu" ngbDropdownToggle id="ellipsisMenu" (click)="$event.stopPropagation()">
+                    <span class="component__menu_icon fa fa-ellipsis-h"></span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="ellipsisMenu">
+                    <button class="dropdown-item" (click)="edit(element.index)">Edit</button>
+                    <button class="dropdown-item" (click)="duplicate(element.index)">Duplicate</button>
+                    <button class="dropdown-item" (click)="delete(element.index)">Delete</button>
+                </div>
+            </div>
         </h5>
     </div>
     <div class="component__content">
-        <div [ngSwitch]="elementType">
-          <app-text-element *ngSwitchCase="'text'" [elementIndex]="elementIndex"></app-text-element>
-          <app-textarea-element *ngSwitchCase="'textarea'" [elementIndex]="elementIndex"></app-textarea-element>
-          <app-radio-element *ngSwitchCase="'radio'" [elementIndex]="elementIndex"></app-radio-element>
-          <app-checkbox-element *ngSwitchCase="'checkbox'" [elementIndex]="elementIndex"></app-checkbox-element>
+        <div [ngSwitch]="element.type">
+            <app-text-element *ngSwitchCase="'Text'" [element]="element"></app-text-element>
+            <app-textarea-element *ngSwitchCase="'TextArea'" [element]="element"></app-textarea-element>
+            <app-radio-element *ngSwitchCase="'Radio'" [element]="element"></app-radio-element>
+            <app-checkbox-element *ngSwitchCase="'Checkbox'" [element]="element"></app-checkbox-element> 
+            <app-dropdown-element *ngSwitchCase="'Dropdown'" [element]="element"></app-dropdown-element> 
         </div>
     </div>
 </div>
 <ng-template #propertiesMenu>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
-    <p>Test</p>
+    <div class="tools">
+        <div class="tools__header">
+            <h5 class="tools__header_title">
+                Radio Buttons
+            </h5>
+            <button class="tools_close" (click)="togglePanels()">
+                <img src="../../../../../assets/images/icons/close_small@3x.svg" alt="">
+            </button>
+        </div>
+        <div class="tools__body">
+            <div class="tools__body_group">
+                <label class="tools__body_group_title">Data Output</label>
+                <div class="tools__body_group_row">
+                    <div class="tools__body_group_row-5">
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="tools__body_group_row-7">
+                        <button class="btn btn-primary pull-right">Set output reference</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tools__body_group">
+                <label class="tools__body_group_title">Label</label>
+                <div class="tools__body_group_row">
+                    <input type="text" class="form-control" placeholder="Placeholder">
+                </div>
+            </div>
+            <div class="tools__body_group">
+                <label class="tools__body_group_title">Field Options</label>
+                <div class="tools__body_group_row">
+                    <div class="tools__body_group_row-6">
+                        <label class="tools_checkbox">
+                            <input type="checkbox"> Required
+                        </label>
+                    </div>
+                    <div class="tools__body_group_row-6">
+                        <label class="tools_checkbox">
+                            <input type="checkbox" checked> Show Labels
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="tools__body_group">
+                <label class="tools__body_group_title">Data Input</label>
+                <div class="tools__body_group_row">
+                    <div class="tools__body_group_row-5">
+                        <input type="email" class="form-control">
+                    </div>
+                    <div class="tools__body_group_row-7">
+                        <button class="btn btn-default pull-right">
+                            Set input reference
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="tools__body_group">
+                <label class="tools__body_group_title">Radio Content</label>
+                <div class="tools__body_group_row tools__body_group_row-margin-bottom">
+                    <div class="tools__body_group_row-7">
+                        <input type="email" class="form-control" placeholder="Opcion 1">
+                    </div>
+                    <div class="tools__body_group_row-5">
+                        <div class="tools__body_group_row">
+                            <div class="tools__body_group_row">
+                            <button class="tools__body_group_row-1 btn">
+                                <img src="../../../../../assets/images/icons/plus_small@3x.svg">
+                            </button>
+                            <button class="tools__body_group_row-1 btn">
+                                <img src="../../../../../assets/images/icons/delete_small@3x.svg">
+                            </button>
+                            <button class="tools__body_group_row-1 btn">
+                                <img src="../../../../../assets/images/icons/hamburger_small@3x.svg">
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tools__body_group_row tools__body_group_row-margin-bottom">
+                    <div class="tools__body_group_row-7">
+                        <input type="email" class="form-control" placeholder="Opcion 1">
+                    </div>
+                    <div class="tools__body_group_row-5">
+                        <div class="tools__body_group_row">
+                            <button class="tools__body_group_row-1 btn">
+                                <img src="../../../../../assets/images/icons/plus_small@3x.svg">
+                            </button>
+                            <button class="tools__body_group_row-1 btn">
+                                <img src="../../../../../assets/images/icons/delete_small@3x.svg">
+                            </button>
+                            <button class="tools__body_group_row-1 btn">
+                                <img src="../../../../../assets/images/icons/hamburger_small@3x.svg">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tools__body_group_row tools__body_group_row-margin-bottom">
+                    <div class="tools__body_group_row-7">
+                        <input type="email" class="form-control" placeholder="Opcion 1">
+                    </div>
+                    <div class="tools__body_group_row-5">
+                        <div class="tools__body_group_row">
+                            <div class="tools__body_group_row">
+                            <button class="tools__body_group_row-1 btn">
+                                <img src="../../../../../assets/images/icons/plus_small@3x.svg">
+                            </button>
+                            <button class="tools__body_group_row-1 btn">
+                                <img src="../../../../../assets/images/icons/delete_small@3x.svg">
+                            </button>
+                            <button class="tools__body_group_row-1 btn">
+                                <img src="../../../../../assets/images/icons/hamburger_small@3x.svg">
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tools__footer">
+            <div class="btn-group pull-right">
+                <button class="btn btn-danger btn-danger-outline">Delete</button>
+                <button class="btn btn-disabled">Cancel</button>
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
 </ng-template>
