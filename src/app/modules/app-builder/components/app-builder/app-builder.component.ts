@@ -25,7 +25,7 @@ import { DropdownElementPropertiesComponent } from '../../../../shared/component
 @Component({
   selector: 'app-app-builder',
   templateUrl: './app-builder.component.html',
-  styleUrls: ['../../../../../assets/styles/dashboard.css']
+  styleUrls: ['./app-builder.component.css', '../../../../../assets/styles/dashboard.css']
 })
 export class AppBuilderComponent implements OnInit {
   @ViewChild('appTabContainer', { read: ViewContainerRef }) tabHost: ViewContainerRef;
