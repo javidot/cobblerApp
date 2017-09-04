@@ -8,117 +8,169 @@
                 <img src="../../../../../assets/images/icons/close_small@3x.svg" alt="">
             </button>
         </div>
-        <div class="custom-modal__content__body">
-            <div class="create-app__appname">
-                <h5 class="create-app__appname-title">App name</h5>
-                <input #txtAppName name="txtAppName" type="text" class="form-control create-app__appname-field" [(ngModel)]="appName">
-            </div>
-        </div>
-        <div class="custom-modal__content__body custom-modal__content-nopadding">
-            <div class="tablist tablist-justified">
-                <div class="tablist__item tablist__item-2 tablist__item-text-left">
-                    Select a template
-                </div>
-                <a href="#" class="tablist__item tablist__item-active" title="Template Applications">
-                    Template Applications
-                </a>
-                <a href="#" class="tablist__item" title="Existing Applications">
-                    Existing Applications
-                </a>
-                <div class="tablist__item tablist__item-2 tablist__item-text-right">
-                    <img src="../../../../../assets/images/icons/search_subtle@3x.svg" alt="Search">
+        <div *ngIf="!showNext">
+            <div class="custom-modal__content__body">
+                <div class="create-app__appname">
+                    <h5 class="create-app__appname-title">App name</h5>
+                    <input #txtAppName name="txtAppName" type="text" class="form-control create-app__appname-field" [(ngModel)]="appName">
                 </div>
             </div>
+            <div class="custom-modal__content__body custom-modal__content-nopadding">
+                <div class="tablist tablist-justified">
+                    <div class="tablist__item tablist__item-2 tablist__item-text-left">
+                        Select a template
+                    </div>
+                    <a href="#" class="tablist__item tablist__item-active" title="Template Applications">
+                        Template Applications
+                    </a>
+                    <a href="#" class="tablist__item" title="Existing Applications">
+                        Existing Applications
+                    </a>
+                    <div class="tablist__item tablist__item-2 tablist__item-text-right">
+                        <img src="../../../../../assets/images/icons/search_subtle@3x.svg" alt="Search">
+                    </div>
+                </div>
+            </div>
+            <div class="custom-modal__content__body custom-modal__content-nopadding custom-modal__content-separator">
+                <div class="applist">
+                    <span *ngIf="loading">
+                        <loaders-css [loader]="'ball-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css> 
+                    </span>
+                    <div class="applist__item applist__item-empty">
+                        <span class="applist__item-canvas"></span>
+                        <span class="applist__item-label">
+                            Blank
+                        </span>
+                    </div>
+                    <div *ngFor="let app of templateApps; let i=index" class="applist__item">
+                        <span class="applist__item-canvas">
+                            <img src="../../../../../assets/images/app-moq-full.png" alt="img">
+                        </span>
+                        <span class="applist__item-label">
+                            {{app.name}}
+                        </span>
+                    </div>
+                    <!-- <div class="applist__item">
+                        <span class="applist__item-canvas">
+                            <img src="../../../../../assets/images/app-moq-full.png" alt="img">
+                        </span>
+                        <span class="applist__item-label">
+                            Inventory Report
+                        </span>
+                    </div>
+                    <div class="applist__item">
+                        <span class="applist__item-canvas">
+                            <img src="../../../../../assets/images/app-moq-full.png" alt="img">
+                        </span>
+                        <span class="applist__item-label">
+                            Expense Report
+                        </span>
+                    </div>
+                    <div class="applist__item">
+                        <span class="applist__item-canvas">
+                            <img src="../../../../../assets/images/app-moq-full.png" alt="img">
+                        </span>
+                        <span class="applist__item-label">
+                            Lorem Ipsum
+                        </span>
+                    </div>
+                    <div class="applist__item">
+                        <span class="applist__item-canvas">
+                            <img src="../../../../../assets/images/app-moq-full.png" alt="img">
+                        </span>
+                        <span class="applist__item-label">
+                            Lorem Ipsum
+                        </span>
+                    </div>
+                    <div class="applist__item">
+                        <span class="applist__item-canvas">
+                            <img src="../../../../../assets/images/app-moq-full.png" alt="img">
+                        </span>
+                        <span class="applist__item-label">
+                            Lorem Ipsum
+                        </span>
+                    </div>
+                    <div class="applist__item">
+                        <span class="applist__item-canvas">
+                            <img src="../../../../../assets/images/app-moq-full.png" alt="img">
+                        </span>
+                        <span class="applist__item-label">
+                            Lorem Ipsum
+                        </span>
+                    </div>
+                    <div class="applist__item">
+                        <span class="applist__item-canvas">
+                            <img src="../../../../../assets/images/app-moq-full.png" alt="img">
+                        </span>
+                        <span class="applist__item-label">
+                            Lorem Ipsum
+                        </span>
+                    </div>
+                    <div class="applist__item">
+                        <span class="applist__item-canvas">
+                            <img src="../../../../../assets/images/app-moq-full.png" alt="img">
+                        </span>
+                        <span class="applist__item-label">
+                            Lorem Ipsum
+                        </span>
+                    </div> -->
+                    
+                </div>
+            </div>
         </div>
-        <div class="custom-modal__content__body custom-modal__content-nopadding custom-modal__content-separator">
-            <div class="applist">
-                <span *ngIf="loading">
-                    <loaders-css [loader]="'ball-spin-fade-loader'" [loaderClass]="'my-loader'"></loaders-css> 
-                </span>
-                <div class="applist__item applist__item-empty">
-                    <span class="applist__item-canvas"></span>
-                    <span class="applist__item-label">
-                        Blank
-                    </span>
+        <div *ngIf="showNext">
+            <div class="custom-modal__content__body">
+                <div class="create-app__appname">
+                    <h5 class="create-app__appname-title">Add a spreadsheet</h5>
+                    <div ng2FileDrop
+                        *ngIf="fileUploaded === 0"
+                        [uploader]="uploader"
+                        class="dashboard__editorzone__page_content_node dashboard__editorzone__page_content_node-empty">
+                        <span>
+                            Drag and drop a file or 
+                            <button class="btn btn-link" (click)="file.click()">browse</button>
+                            <input 
+                                #file
+                                hidden="true"
+                                type="file" 
+                                accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" 
+                                (change)="uploadFile(file.files[0])">
+                        </span>
+                        <div *ngIf="errorFileType">
+                            <ngb-alert type="danger" [dismissible]="false">Please upload a correct file (.cvs, .xsl or .xslx)</ngb-alert>
+                        </div>
+                        <div *ngIf="errorUploadingFile">
+                            <ngb-alert type="danger" [dismissible]="false">Error uploading the file.</ngb-alert>
+                        </div>
+                    </div>
+                    <div *ngIf="fileUploaded >= 1"
+                        class="dashboard__editorzone__page_content_node dashboard__editorzone__page_content_node-empty">
+                        <ng-container *ngIf="fileUploaded === 1">
+                            <p>Uploading file</p>
+                        </ng-container>
+                        <ng-container *ngIf="fileUploaded === 2">
+                            <p>File uploaded</p>
+                        </ng-container>
+                        <ngb-progressbar 
+                            type="info" 
+                            [value]="fileUploadProgress"
+                            [striped]="true" 
+                            [animated]="fileUploaded != 2">
+                            <b>{{fileUploadProgress}}%</b>
+                        </ngb-progressbar>
+                        <br>
+                        <div *ngIf="fileUploaded === 2">
+                            <ngb-alert type="success" [dismissible]="false">File uploaded successfully!</ngb-alert>
+                        </div>
+                    </div>
                 </div>
-                <div *ngFor="let app of templateApps; let i=index" class="applist__item">
-                    <span class="applist__item-canvas">
-                        <img src="../../../../../assets/images/app-moq-full.png" alt="img">
-                    </span>
-                    <span class="applist__item-label">
-                        {{app.name}}
-                    </span>
-                </div>
-                <!-- <div class="applist__item">
-                    <span class="applist__item-canvas">
-                        <img src="../../../../../assets/images/app-moq-full.png" alt="img">
-                    </span>
-                    <span class="applist__item-label">
-                        Inventory Report
-                    </span>
-                </div>
-                <div class="applist__item">
-                    <span class="applist__item-canvas">
-                        <img src="../../../../../assets/images/app-moq-full.png" alt="img">
-                    </span>
-                    <span class="applist__item-label">
-                        Expense Report
-                    </span>
-                </div>
-                <div class="applist__item">
-                    <span class="applist__item-canvas">
-                        <img src="../../../../../assets/images/app-moq-full.png" alt="img">
-                    </span>
-                    <span class="applist__item-label">
-                        Lorem Ipsum
-                    </span>
-                </div>
-                <div class="applist__item">
-                    <span class="applist__item-canvas">
-                        <img src="../../../../../assets/images/app-moq-full.png" alt="img">
-                    </span>
-                    <span class="applist__item-label">
-                        Lorem Ipsum
-                    </span>
-                </div>
-                <div class="applist__item">
-                    <span class="applist__item-canvas">
-                        <img src="../../../../../assets/images/app-moq-full.png" alt="img">
-                    </span>
-                    <span class="applist__item-label">
-                        Lorem Ipsum
-                    </span>
-                </div>
-                <div class="applist__item">
-                    <span class="applist__item-canvas">
-                        <img src="../../../../../assets/images/app-moq-full.png" alt="img">
-                    </span>
-                    <span class="applist__item-label">
-                        Lorem Ipsum
-                    </span>
-                </div>
-                <div class="applist__item">
-                    <span class="applist__item-canvas">
-                        <img src="../../../../../assets/images/app-moq-full.png" alt="img">
-                    </span>
-                    <span class="applist__item-label">
-                        Lorem Ipsum
-                    </span>
-                </div>
-                <div class="applist__item">
-                    <span class="applist__item-canvas">
-                        <img src="../../../../../assets/images/app-moq-full.png" alt="img">
-                    </span>
-                    <span class="applist__item-label">
-                        Lorem Ipsum
-                    </span>
-                </div> -->
-                
             </div>
         </div>
         <div class="custom-modal__content__footer text-right">
-            <button class="btn">Cancel</button>
-            <button class="btn btn-success" (click)="createApp()">Next</button>
+            <button *ngIf="!showNext" class="btn" (click)="closeModal()">Cancel</button>
+            <button *ngIf="!showNext" class="btn btn-success" (click)="createApp()">Next</button>
+            <button *ngIf="showNext" class="btn" [disabled]="fileUploaded === 1" (click)="closeModal()">Close</button>
+            <button *ngIf="showNext" class="btn btn-success" (click)="openNewApp()" [disabled]="fileUploaded != 2">Open App</button>
         </div>
     </form>
 </div>

@@ -3,8 +3,12 @@ import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../../environments/environment';
+import { FileUploader } from 'ng2-file-upload';
+
 import { User } from '../../shared/models/user';
 import { App } from '../../shared/models/app';
+import { AppSheet } from '../../shared/models/app-sheet';
 import { UserApp } from '../../shared/models/user-app';
 import { AppForm } from '../../shared/models/app-form';
 import { Tab } from '../../modules/app-builder/models/tab';
@@ -13,8 +17,8 @@ import { Tab } from '../../modules/app-builder/models/tab';
 export class DataBackendService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private options = new RequestOptions();
-  private apiUrl = 'http://ec2-34-213-244-153.us-west-2.compute.amazonaws.com/api/';
-  // private apiUrl = 'http://localhost:3000/api/';
+  private apiUrl = environment.apiUrl;
+  // private apiUrl = environment.apiUrlLocal;
 
   constructor(private http: Http) {
     this.headers.append('Access-Control-Allow-Origin', '*');
@@ -85,7 +89,7 @@ export class DataBackendService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
     appForm.description = null;
-    appForm.formTypeFk = 1;
+    appForm.formTypeFk = 3;
     // let regExp = new RegExp('"', 'g');
     // form.formSchema = form.formSchema.replace(regExp, '\'');
     const data = { form: appForm, formSchema: JSON.parse(appForm.formSchema) };
@@ -121,6 +125,20 @@ export class DataBackendService {
           return res.json()[0];
         }
       );
+  }
+
+  insertAppSpreadsheet(sheet: AppSheet): Observable<{ commandType: string, result: any }> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+
+    // tslint:disable-next-line:max-line-length
+    return this.http.post(this.apiUrl + 'apps/' + sheet.appFk, JSON.stringify(sheet), { headers: this.headers })
+      .map(res => {
+        if (res.status === 200) {
+          return res.json();
+        } else {
+          return { error: 'Error inserting sheet', status: res.status };
+        }
+      });
   }
 
   // private extractData(res: Response): App {

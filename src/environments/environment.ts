@@ -4,5 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://cobbler-app.us-west-2.elasticbeanstalk.com/api/',
+  apiUrlLocal: 'http://localhost:3000/api/',
+  awsAccessKey: 'AKIAI7QCLLGMHOXJKH2A',
+  awsSecretAccessKey: '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'
 };

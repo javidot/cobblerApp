@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 import { NewAppComponent } from '../../../../shared/components/new-app/new-app.component';
 
@@ -17,6 +17,10 @@ export class TitleBarComponent implements OnInit {
   }
 
   showNewAppModal() {
-    const modalRef = this.modalService.open(NewAppComponent, { size: 'lg' });
+    const modalOptions: NgbModalOptions = {};
+    modalOptions.backdrop = 'static';
+    modalOptions.keyboard = false;
+    modalOptions.size = 'lg';
+    const modalRef = this.modalService.open(NewAppComponent, modalOptions);
   }
 }
